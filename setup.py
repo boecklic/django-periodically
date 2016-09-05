@@ -1,21 +1,32 @@
-#!/usr/bin/env python
+mport os
+from setuptools import setup
 
-import os
-from setuptools import setup, find_packages
+README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
-README = read('README.rst')
+# allow setup.py to be run from any path
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name = "django-periodically",
-    version = "0.3.0",
-    description='Periodic task management for your Django projects.',
-    url = 'https://github.com/hzdg/django-periodically',
+    name='django-libtech-emailuser',
+    version='0.2',
+    packages=['emailuser'],
+    include_package_data=True,
+    license='BSD License',
+    description='Use emailaddress as username in Django +1.5',
     long_description=README,
-
-    author = 'Matthew Tretter',
-    author_email = 'matthew@exanimo.com',
-    packages = find_packages()
+    url='https://github.com/Liberationtech/django-libtech-emailuser',
+    author='Oivvio Polite',
+    author_email='oivvio@liberationtech.net',
+    classifiers=[
+        'Environment :: Web Environment',
+        'Framework :: Django',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Internet :: WWW/HTTP',
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+    ],
 )
